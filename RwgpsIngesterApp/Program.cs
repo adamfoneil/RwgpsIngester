@@ -25,7 +25,7 @@ Dictionary<string, object> requestParams = new()
     ["user_id"] = userId
 };
 
-var response = await http.GetAsync($"/explore/personal.json?{ToRequestParams(requestParams)}");
+var response = await http.GetAsync($"/explore/personal.json?{ToQueryString(requestParams)}");
 //var response = await http.GetAsync("https://ridewithgps.com/explore/personal.json?models=trips&route_fields=id%2Cname%2Clocation%2Cvisibility%2Cfirst_lat%2Cfirst_lng%2Cdistance%2Celevation_gain%2Celevation_loss%2Csurface_type%2Chas_cuesheet%2Csw_lat%2Csw_lng%2Cne_lat%2Cne_lng%2Cpinned%2Chighlighted_photo_id%2Ccreated_at%2Cupdated_at&sort_by=departed_or_created%20DESC&trip_fields=id%2Cname%2Clocation%2Cvisibility%2Cfirst_lat%2Cfirst_lng%2Cis_gps%2Cdistance%2Cmoving_time%2Celevation_gain%2Cavg_speed%2Cavg_watts%2Cavg_watts_estimated%2Csw_lat%2Csw_lng%2Cne_lat%2Cne_lng%2Cpinned%2Chighlighted_photo_id%2Cdeparted_at%2Ccreated_at%2Cupdated_at&user_id=132441");
 response.EnsureSuccessStatusCode(); // keep getting 404
 var content = await response.Content.ReadAsStringAsync();
@@ -57,7 +57,7 @@ Console.WriteLine(content);
 });
 */
 
-static string ToRequestParams(Dictionary<string, object> dictionary) => 
+static string ToQueryString(Dictionary<string, object> dictionary) => 
     dictionary.Where(kp => kp.Value is not null)
     .Select(kp => $"{Uri.EscapeDataString(kp.Key)}={Uri.EscapeDataString(kp.Value.ToString()!)}")
     .Aggregate((key, val) => $"{key}&{val}");
