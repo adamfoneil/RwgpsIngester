@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="RideWithGPSClient/RideWithGPSClient.csproj" />
+  <Project Path="RwgpsIngesterApp/RwgpsIngesterApp.csproj" />
+</Solution>
