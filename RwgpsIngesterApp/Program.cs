@@ -21,3 +21,8 @@ var rides = await client.GetTripsAsync(user.Id, new()
 	Limit = 30
 });
 
+foreach (var ride in rides.Trips)
+{
+	Console.WriteLine($"{ride.Id}: {ride.MovingTime} ({ride.Distance:N1} mi)");
+}
+

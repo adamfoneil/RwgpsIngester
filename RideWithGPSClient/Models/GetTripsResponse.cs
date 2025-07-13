@@ -72,10 +72,10 @@ public class Trip
 	public int? AvgCadence { get; set; }
 
 	[JsonPropertyName("avg_speed")]
-	public double AvgSpeed { get; set; }
+	public double? AvgSpeed { get; set; }
 
 	[JsonPropertyName("max_speed")]
-	public double MaxSpeed { get; set; }
+	public double? MaxSpeed { get; set; }
 
 	[JsonPropertyName("moving_time")]
 	public int MovingTime { get; set; }
@@ -153,7 +153,7 @@ public class Trip
 	public string? SourceType { get; set; }
 
 	[JsonPropertyName("likes_count")]
-	public int LikesCount { get; set; }
+	public int? LikesCount { get; set; }
 
 	[JsonPropertyName("track_type")]
 	public string? TrackType { get; set; }
@@ -171,7 +171,7 @@ public class Trip
 	public int ActivityCategoryId { get; set; }
 
 	[JsonPropertyName("vam")]
-	public int Vam { get; set; }
+	public int? Vam { get; set; }
 
 	[JsonPropertyName("work")]
 	public object? Work { get; set; }
